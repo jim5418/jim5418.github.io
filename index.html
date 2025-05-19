@@ -1,34 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students' Helper - Smart Learning & Wellness Platform</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 在title标签下方添加网站图标 -->
+    <link rel="icon" type="image/png" href="images/创建StudentHelper图片(2).png">
     <style>
-        :root {
-            --primary: #3F51B5;
-            --secondary: #00BCD4;
-            --accent: #FF9800;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background: #f5f5f5;
-        }
-
         /* 新增图片样式 */
-        .site-logo {
+        .header-logo {
             position: absolute;
             left: 2rem;
             top: 1.5rem;
-            height: 70px;
+            height: 60px;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
 
-        .hero-deco {
+        .hero-image {
             position: absolute;
             right: 5%;
             bottom: -30px;
@@ -37,157 +22,34 @@
             opacity: 0.9;
         }
 
-        .section-header {
-            position: relative;
-            padding-left: 120px;
-            min-height: 100px;
-        }
-
         .section-icon {
             position: absolute;
-            left: 0;
+            left: 2rem;
             top: 50%;
             transform: translateY(-50%);
-            width: 100px;
-            height: auto;
+            width: 80px;
+            height: 80px;
         }
 
         .footer-logo {
-            margin-bottom: 1.5rem;
             width: 120px;
+            margin-bottom: 1rem;
             opacity: 0.8;
         }
 
+        /* 原有样式保持不变 */
         .header {
-            background: var(--primary);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 1rem;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .nav a:hover {
-            color: var(--accent);
-        }
-
-        .section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid var(--secondary);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card:hover::after {
-            opacity: 1;
-        }
-
-        .card a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(63, 81, 181, 0.9), rgba(0, 188, 212, 0.9)),
-                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover;
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .tech-badge {
-            background: var(--secondary);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .footer {
-            background: #263238;
-            color: white;
-            padding: 2rem;
-            text-align: center;
+            position: relative; /* 新增定位上下文 */
         }
 
         @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            .site-logo {
+            .header-logo {
                 position: static;
                 margin: 0 auto 1rem;
                 display: block;
             }
-            .hero-deco {
+            .hero-image {
                 display: none;
-            }
-            .section-header {
-                padding-left: 0;
-                text-align: center;
             }
             .section-icon {
                 position: static;
@@ -198,46 +60,37 @@
     </style>
 </head>
 <body>
+    <!-- 在header添加主logo -->
     <header class="header">
-        <img src="images/创建 Student Helper 图片 (2).png" 
-             alt="Students' Helper Logo" 
-             class="site-logo">
+        <img src="images/创建StudentHelper图片(2).png" 
+             alt="Logo" 
+             class="header-logo">
         <h1>Students' Helper</h1>
         <p>Your Intelligent Learning & Wellness Companion</p>
     </header>
 
-    <nav class="nav">
-        <a href="#learn">Learning Tools</a>
-        <a href="#wellness">Wellness Support</a>
-        <a href="#finance">Financial Tools</a>
-    </nav>
-
+    <!-- 在hero区域添加装饰图 -->
     <div class="hero">
-        <img src="images/创建 Student Helper 图片 (1).png" 
-             alt="Learning Platform" 
-             class="hero-deco">
+        <img src="images/创建StudentHelper图片(1).png" 
+             alt="装饰图" 
+             class="hero-image">
         <h2>Empowering Smarter Learning & Balanced Life</h2>
         <p>AI-powered solutions for academic success and mental wellness</p>
     </div>
 
-    <!-- 学习工具部分 -->
+    <!-- 在Learning Tools部分添加图标 -->
     <section id="learn" class="section">
-        <div class="section-header">
-            <img src="images/创建 Student Helper 图片 (1).png" 
-                 alt="Learning Icon" 
-                 class="section-icon">
-            <h2><i class="fas fa-graduation-cap feature-icon"></i> Smart Learning Tools</h2>
-        </div>
-        <div class="card-grid">
-            <!-- 原有卡片内容保持不变 -->
-        </div>
+        <img src="images/创建StudentHelper图片(1).png" 
+             alt="学习图标" 
+             class="section-icon">
+        <h2><i class="fas fa-graduation-cap feature-icon"></i> Smart Learning Tools</h2>
+        <!-- 原有卡片内容保持不变 -->
     </section>
 
-    <!-- 其他部分保持不变 -->
-
+    <!-- 在页脚添加小logo -->
     <footer class="footer">
-        <img src="images/创建 Student Helper 图片 (2).png" 
-             alt="Small Logo" 
+        <img src="images/创建StudentHelper图片(2).png" 
+             alt="页脚Logo" 
              class="footer-logo">
         <p>© 2024 Students' Helper - Transforming Student Success</p>
         <p>Contact: support@studentshelper.com | Help Center</p>
