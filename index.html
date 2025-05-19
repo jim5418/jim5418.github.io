@@ -1,99 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <!-- 在title标签下方添加网站图标 -->
-    <link rel="icon" type="image/png" href="jim5418.github.io/创建StudentHelper图片(2).png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students' Helper - 智能学习与健康平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png">
     <style>
-        /* 新增图片样式 */
-        .header-logo {
-            position: absolute;
-            left: 2rem;
-            top: 1.5rem;
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        :root {
+            --primary: #3F51B5;
+            --secondary: #00BCD4;
+            --accent: #FF9800;
         }
 
-        .hero-image {
-            position: absolute;
-            right: 5%;
-            bottom: -30px;
-            max-width: 380px;
-            z-index: 10;
-            opacity: 0.9;
+        /* 基础样式 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background: #f8f9fa;
+        }
+
+        /* 新版头部样式 */
+        .header-container {
+            background: var(--primary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .brand-logo {
+            height: 50px;
+            margin-right: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero区域优化 */
+        .hero-section {
+            background: linear-gradient(rgba(63, 81, 181, 0.9), rgba(0, 188, 212, 0.9)),
+                        url('https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png') center/cover;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 功能卡片增强 */
+        .feature-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
         .section-icon {
+            width: 100px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
             position: absolute;
-            left: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 80px;
-            height: 80px;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, var(--secondary) 0%, transparent 50%);
+            opacity: 0.1;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.2;
+        }
+
+        /* 页脚优化 */
+        .footer-container {
+            background: #263238;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
         .footer-logo {
             width: 120px;
-            margin-bottom: 1rem;
-            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
 
-        /* 原有样式保持不变 */
-        .header {
-            position: relative; /* 新增定位上下文 */
-        }
-
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            .header-logo {
-                position: static;
-                margin: 0 auto 1rem;
-                display: block;
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
             }
-            .hero-image {
-                display: none;
+
+            .brand-logo {
+                margin: 0 0 1.5rem;
             }
-            .section-icon {
-                position: static;
-                margin: 0 auto 1rem;
-                display: block;
+
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .feature-section {
+                padding: 2rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 在header添加主logo -->
-    <header class="header">
-        <img src="jim5418.github.io/创建StudentHelper图片(2).png" 
-             alt="Logo" 
-             class="header-logo">
-        <h1>Students' Helper</h1>
-        <p>Your Intelligent Learning & Wellness Companion</p>
+    <!-- 头部导航 -->
+    <header class="header-container">
+        <nav class="nav-container">
+            <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png" 
+                 alt="品牌Logo" 
+                 class="brand-logo">
+            <div class="nav-links">
+                <a href="#learn" class="nav-link">学习工具</a>
+                <a href="#wellness" class="nav-link">健康支持</a>
+                <a href="#finance" class="nav-link">财务工具</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- 在hero区域添加装饰图 -->
-    <div class="hero">
-        <img src="jim5418.github.io/创建StudentHelper图片(1).png" 
-             alt="装饰图" 
-             class="hero-image">
-        <h2>Empowering Smarter Learning & Balanced Life</h2>
-        <p>AI-powered solutions for academic success and mental wellness</p>
-    </div>
-
-    <!-- 在Learning Tools部分添加图标 -->
-    <section id="learn" class="section">
-        <img src="jim5418.github.io/创建StudentHelper图片(1).png" 
-             alt="学习图标" 
-             class="section-icon">
-        <h2><i class="fas fa-graduation-cap feature-icon"></i> Smart Learning Tools</h2>
-        <!-- 原有卡片内容保持不变 -->
+    <!-- Hero区域 -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Students' Helper</h1>
+            <p class="lead">你的智能学习与健康伙伴</p>
+        </div>
     </section>
 
-    <!-- 在页脚添加小logo -->
-    <footer class="footer">
-        <img src="jim5418.github.io/创建StudentHelper图片(2).png" 
+    <!-- 学习工具模块 -->
+    <section id="learn" class="feature-section">
+        <div class="section-header">
+            <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+                 alt="学习图标" 
+                 class="section-icon">
+            <h2><i class="fas fa-graduation-cap"></i> 智能学习工具</h2>
+        </div>
+        <div class="card-grid">
+            <!-- 三个学习工具卡片 -->
+            <div class="feature-card" onclick="window.open('https://chat.deepseek.com/', '_blank')">
+                <h3>AI作业解答</h3>
+                <p>拍照或输入问题获取分步解答和详细说明</p>
+                <div class="card-arrow">→</div>
+            </div>
+            <!-- 其他两个卡片保持相同结构 -->
+        </div>
+    </section>
+
+    <!-- 健康支持模块 -->
+    <section id="wellness" class="feature-section" style="background: #f5f7fa;">
+        <div class="section-header">
+            <h2><i class="fas fa-heartbeat"></i> 健康支持系统</h2>
+        </div>
+        <div class="card-grid">
+            <!-- 三个健康支持卡片 -->
+            <div class="feature-card" onclick="window.open('https://www.qzxqai.com/', '_blank')">
+                <h3>CBT治疗聊天</h3>
+                <p>AI驱动的认知行为治疗会话</p>
+                <div class="card-arrow">→</div>
+            </div>
+            <!-- 其他两个卡片保持相同结构 -->
+        </div>
+    </section>
+
+    <!-- 财务工具模块 -->
+    <section id="finance" class="feature-section">
+        <div class="section-header">
+            <h2><i class="fas fa-coins"></i> 财务赋能工具</h2>
+        </div>
+        <div class="card-grid">
+            <!-- 两个财务工具卡片 -->
+            <div class="feature-card" onclick="window.open('https://www.creditkarma.com/', '_blank')">
+                <h3>智能储蓄计划</h3>
+                <p>根据个人目标生成的AI财务规划</p>
+                <div class="card-arrow">→</div>
+            </div>
+            <!-- 另一个卡片保持相同结构 -->
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer-container">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png" 
              alt="页脚Logo" 
              class="footer-logo">
-        <p>© 2024 Students' Helper - Transforming Student Success</p>
-        <p>Contact: support@studentshelper.com | Help Center</p>
+        <div class="footer-content">
+            <p>© 2024 Students' Helper - 助力学生成功</p>
+            <p>联系我们: support@studentshelper.com | 帮助中心</p>
+        </div>
     </footer>
 </body>
 </html>
