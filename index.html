@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students' Helper - Smart Learning & Wellness Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png">
+    <style>
+        :root {
+            --primary: #3F51B5;
+            --secondary: #00BCD4;
+            --accent: #FF9800;
+        }
+
+        /* 新增图片样式 */
+        .header-logo {
+            position: absolute;
+            left: 2rem;
+            top: 1.5rem;
+            height: 50px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 5%;
+            bottom: -20px;
+            height: 300px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .section-icon {
+            position: absolute;
+            left: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+        }
+
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* 基础样式修复 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem 2rem; /* 调整顶部间距 */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+       .nav a {
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+        .nav a:hover {
+    background: var(--accent);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* 图标反白 */
+}
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--secondary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(63, 81, 181, 0.9), rgba(0, 188, 212, 0.9)),
+                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer {
+            background: #263238;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* 响应式修复 */
+        @media (max-width: 768px) {
+    .nav a {
+        width: 80%;
+        justify-content: center;
+        margin: 0.5rem auto;
+        padding: 12px 20px;
+    }
+            .header-logo {
+                position: static;
+                margin: 0 auto 1rem;
+                display: block;
+            }
+            .hero-decoration {
+                display: none;
+            }
+            .section-icon {
+                position: static;
+                margin: 0 auto 1rem;
+                display: block;
+                transform: none;
+            }
+            .header {
+                padding-top: 2rem;
+            }
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png" 
+             alt="Logo" 
+             class="header-logo">
+        <h1>Your Intelligent Learning & Wellness Companion</h1>
+    </header>
+
+    <!-- 导航菜单 -->
+<nav class="nav">
+    <a href="#learn">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             class="nav-icon"
+             alt="Learning Icon">
+        Learning Tools
+    </a>
+    <a href="#wellness">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             class="nav-icon"
+             alt="Wellness Icon">
+        Wellness Support
+    </a>
+    <a href="#finance">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             class="nav-icon"
+             alt="Finance Icon">
+        Financial Tools
+    </a>
+</nav>
+
+    <!-- Hero区域 -->
+    <div class="hero">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             alt="Decoration" 
+             class="hero-decoration">
+        <h2>Empowering Smarter Learning & Balanced Life</h2>
+        <p>AI-powered solutions for academic success and mental wellness</p>
+    </div>
+
+     <!-- 学习工具模块 -->
+    <section id="learn" class="section">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             alt="Learning Icon" 
+             class="section-icon">
+        <h2><i class="fas fa-graduation-cap feature-icon"></i> Smart Learning Tools</h2>
+        <div class="card-grid">
+            <div class="card" onclick="window.open('https://chat.deepseek.com/', '_blank')">
+                <a href="https://chat.deepseek.com/" target="_blank">
+                    <h3>AI Homework Solver</h3>
+                    <p>Snap or type questions to receive step-by-step solutions with detailed explanations</p>
+                </a>
+            </div>
+            <div class="card" onclick="window.open('https://app.reclaim.ai/planner', '_blank')">
+                <a href="https://app.reclaim.ai/planner" target="_blank">
+                    <h3>Smart Study Planner</h3>
+                    <p>Automated schedule generation based on your courses and academic goals</p>
+                </a>
+            </div>
+            <div class="card" onclick="window.open('https://notegpt.io/workspace/home', '_blank')">
+                <a href="https://notegpt.io/workspace/home" target="_blank">
+                    <h3>Flashcard Generator</h3>
+                    <p>Automatic creation of study cards from your course materials</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 健康支持模块 -->
+    <section id="wellness" class="section" style="background: #fff;">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             alt="Wellness Icon" 
+             class="section-icon">
+        <h2><i class="fas fa-heartbeat feature-icon"></i> Wellness Support System</h2>
+        <div class="card-grid">
+            <div class="card" onclick="window.open('https://www.qzxqai.com/', '_blank')">
+                <a href="https://www.qzxqai.com/" target="_blank">
+                    <h3>CBT Therapy Chat</h3>
+                    <p>AI-powered cognitive behavioral therapy sessions</p>
+                </a>
+            </div>
+            <div class="card" onclick="window.open('https://play.google.com/store/apps/details?id=moodtracker.selfcare.habittracker.mentalhealth', '_blank')">
+                <a href="https://play.google.com/store/apps/details?id=moodtracker.selfcare.habittracker.mentalhealth" target="_blank">
+                    <h3>Mood Tracker</h3>
+                    <p>Daily emotional analysis and personalized reports</p>
+                </a>
+            </div>
+            <div class="card" onclick="window.open('https://www.headspace.com/', '_blank')">
+                <a href="https://www.headspace.com/" target="_blank">
+                    <h3>Sleep Assistant</h3>
+                    <p>Guided meditation and breathing exercises for better sleep</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 财务工具模块 -->
+    <section id="finance" class="section">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(1).png" 
+             alt="Finance Icon" 
+             class="section-icon">
+        <h2><i class="fas fa-coins feature-icon"></i> Financial Empowerment</h2>
+        <div class="card-grid">
+            <div class="card" onclick="window.open('https://www.creditkarma.com/', '_blank')">
+                <a href="https://www.creditkarma.com/" target="_blank">
+                    <h3>Smart Savings Planner</h3>
+                    <p>AI-generated financial plans for your personal goals</p>
+                </a>
+            </div>
+            <div class="card" onclick="window.open('https://preply.com/en/online/english-tutors', '_blank')">
+                <a href="https://preply.com/en/online/english-tutors" target="_blank">
+                    <h3>Tutoring Platform</h3>
+                    <p>Monetize your academic skills through 1-on-1 tutoring</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <img src="https://jim5418.github.io/%E5%88%9B%E5%BB%BA%20Student%20Helper%20%E5%9B%BE%E7%89%87%20(2).png" 
+             alt="Footer Logo" 
+             class="footer-logo">
+        <p>© 2024 Students' Helper - Transforming Student Success</p>
+        <p>Contact: support@studentshelper.com | Help Center</p>
+    </footer>
+</body>
+</html>
